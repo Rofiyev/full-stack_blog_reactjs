@@ -3,10 +3,10 @@ import { Input } from '../ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUserFailure, signUserStart, signUserSuccess, reset } from '../slice/auth';
 import AuthService from '../service/auth';
-import { toast } from 'react-toastify';
 import { useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Toastfiy from './Toastfiy';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -47,11 +47,8 @@ const Register = () => {
     }
   }
 
-
   useEffect(() => {
-    if (loggedIn) {
-      navigate('/')
-    }
+    if (loggedIn) navigate('/');
   }, [loggedIn]);
 
   return (
@@ -59,20 +56,7 @@ const Register = () => {
       <div className="col-10 col-sm-8 col-md-5 col-lg-4 mx-auto">
         <div className="w-100">
           <div className='d-none'>
-            {error !== null ?
-              toast.error(errorMessege()[0].charAt(0).toUpperCase() + errorMessege()[0].slice(1), {
-                position: 'top-right',
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: 0,
-                progressStyle: { background: '#fff' },
-                theme: 'colored',
-                style: { background: '#ea0229' },
-              })
-              : <></>}
+            {error !== null && <Toastfiy color={'#ea0229'} messege={errorMessege()[0].charAt(0).toUpperCase() + errorMessege()[0].slice(1)} />}
           </div>
           <form ref={ref} className="form-signin">
             <div className="text-center">

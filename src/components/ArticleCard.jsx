@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ArticleService from '../service/article';
 import { getArticleSuccess } from '../slice/article';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
+import Toastfiy from './Toastfiy';
 
 const ArticleCard = ({ title, description, author, slug }) => {
   const navigate = useNavigate();
@@ -34,17 +34,7 @@ const ArticleCard = ({ title, description, author, slug }) => {
   return (
     <div className="col-xl-4 col-md-6" style={{ minHeight: '470px', marginBottom: '20px' }}>
       <div className='d-none'>
-        <>
-          {deleteItem &&
-            toast.success('Delete Article Successfully', {
-              position: 'top-right',
-              autoClose: 2000,
-              progress: 0,
-              progressStyle: { background: '#fff' },
-              theme: 'colored',
-              style: { background: '#008554' },
-            })}
-        </>
+        <>{deleteItem && <Toastfiy color={'#008554'} messege={'Delete Article Successfully'} />}</>
       </div>
       <div className="card mb-4 box-shadow" style={{ height: '100%' }}>
         <img className="card-img-top" alt="Thumbnail" style={{ height: '225px', width: '100%', display: 'block' }}

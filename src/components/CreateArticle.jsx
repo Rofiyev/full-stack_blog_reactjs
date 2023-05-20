@@ -3,9 +3,9 @@ import Form from '../ui/Form';
 import ArticleService from '../service/article';
 import { postArticleFailure, postArticleStart, postArticleSuccess, reset } from '../slice/article';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Toastfiy from './Toastfiy';
 
 const CreateArticle = () => {
   const ref = useRef(null);
@@ -59,26 +59,8 @@ const CreateArticle = () => {
       <h2 className='text-center mt-5 fw-bold'>Create Article</h2>
       <div className='d-none'>
         <>
-          {alert &&
-            toast.success('Create Article Successfully', {
-              position: 'top-right',
-              autoClose: 2000,
-              progress: 0,
-              progressStyle: { background: '#fff' },
-              theme: 'colored',
-              style: { background: '#008554' },
-            })}
-        </>
-        <>
-          {errorAlert &&
-            toast.error(errorMessege()[0], {
-              position: 'top-right',
-              autoClose: 2000,
-              progress: 0,
-              progressStyle: { background: '#fff' },
-              theme: 'colored',
-              style: { background: '#ea0229' },
-            })}
+          {alert && <Toastfiy color={'#008554'} messege={'Create Article Successfully'} />}
+          {errorAlert && <Toastfiy color={'#ea0229'} messege={errorMessege()[0]} />}
         </>
       </div>
       <div className="row mt-5">

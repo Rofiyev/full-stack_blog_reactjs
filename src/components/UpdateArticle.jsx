@@ -12,7 +12,7 @@ import {
 } from "../slice/article";
 import ArticleService from "../service/article";
 import { Loader } from "../ui";
-import { toast } from "react-toastify";
+import Toastfiy from "./Toastfiy";
 
 const UpdateArticle = () => {
   const { slug } = useParams();
@@ -69,15 +69,7 @@ const UpdateArticle = () => {
       {loading ? <div style={{ height: '75vh', width: '100%' }} className="d-flex align-items-center justify-content-center"><Loader /></div> : <>
         <h2 className='text-center mt-5 fw-bold'>Update Article</h2>
         <div className='d-none'>
-          {alert &&
-            toast.success('Update Article Successfully', {
-              position: 'top-right',
-              autoClose: 2000,
-              progress: 0,
-              progressStyle: { background: '#fff' },
-              theme: 'colored',
-              style: { background: '#008554' },
-            })}
+          {alert && <Toastfiy color={'#008554'} messege={'Update Article Successfully'} />}
         </div>
         <div className="row mt-5">
           <div className="col-md-8 mx-auto">
