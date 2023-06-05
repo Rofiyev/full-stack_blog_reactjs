@@ -19,8 +19,6 @@ const App = () => {
     }
   }
 
-
-
   useEffect(() => {
     const token = getItem('token');
     if (token) getUser();
@@ -42,4 +40,3 @@ const App = () => {
 }
 
 export default App;
-
