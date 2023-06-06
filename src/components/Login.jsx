@@ -3,11 +3,9 @@ import { Input } from '../ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset, signUserFailure, signUserStart, signUserSuccess } from '../slice/auth';
 import AuthService from '../service/auth';
-import { useRef, useEffect } from 'react';
-import { useCallback } from 'react';
-import { useNavigate, } from 'react-router-dom';
-import { useState } from 'react';
+import { useCallback, useState, useRef, useEffect } from 'react';
 import Toastfiy from './Toastfiy';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const dispatch = useDispatch();

@@ -1,11 +1,10 @@
+import { useEffect, useRef, useCallback ,useState} from 'react';
 import logo from '../image/logo-size.png';
 import { Input } from '../ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUserFailure, signUserStart, signUserSuccess, reset } from '../slice/auth';
 import AuthService from '../service/auth';
-import { useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import Toastfiy from './Toastfiy';
 
 const Register = () => {
