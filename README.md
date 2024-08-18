@@ -26,8 +26,8 @@ Technologies used in the project:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Rofiyev/full-stack_blog.git
-   cd full-stack_blog
+   git clone https://github.com/Rofiyev/full-stack_blog_reactjs.git
+   cd full-stack_blog_reactjs
    ```
 
 2. Install the dependencies:
